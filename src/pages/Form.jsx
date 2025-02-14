@@ -1,57 +1,51 @@
-import React from 'react';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { a11yLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { a11yLight } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-
-
-
-const FormPage = () => {
+export const Form = () => {
   return (
     <div>
       <h2>Формы и их обработка (react-hook-form)</h2>
       <p>
-        Существуют библиотеки, такие как <b style = {{color: '#A52A2A'}}>React Hook Form </b> , которая
-        предоставляет более высокоуровневые решения для работы с формами. 
-        Они упрощают управление состоянием, валидацией, обработкой отправки и другими аспектами работы с формами.
+        Существуют библиотеки, такие как{" "}
+        <b style={{ color: "#A52A2A" }}>React Hook Form </b> , которая
+        предоставляет более высокоуровневые решения для работы с формами. Они
+        упрощают управление состоянием, валидацией, обработкой отправки и
+        другими аспектами работы с формами.
       </p>
       <h3>React Hook Form</h3>
       <p>
-        <b>React Hook Form</b> - библиотека, которая упрощает процесс работы с формами .
-        Позволяет создавать интерактивные и дружественные формы с минимумом лишнего кода.
+        <b>React Hook Form</b> - библиотека, которая упрощает процесс работы с
+        формами . Позволяет создавать интерактивные и дружественные формы с
+        минимумом лишнего кода.
       </p>
       <h4>Установка</h4>
       <SyntaxHighlighter language="javascript" style={a11yLight}>
-{`npm install react-hook-form`}
+        {`npm install react-hook-form`}
       </SyntaxHighlighter>
       <h4>Импорт библиотеки</h4>
       <SyntaxHighlighter language="javascript" style={a11yLight}>
-{`//импорт необходимых функций
-import { useForm } from 'react-hook-form';
-`}
+        {`import { useForm } from 'react-hook-form';`}
       </SyntaxHighlighter>
       <h4>Инициализация Хука</h4>
       <SyntaxHighlighter language="javascript" style={a11yLight}>
-{`// внутри функциональной компоненты вызываем хук
-
-const { register, handleSubmit, formState: { errors } } = useForm()
-`}
+        {`const { register, handleSubmit, formState: { errors } } = useForm()`}
       </SyntaxHighlighter>
       <h4>Создание Формы</h4>
       <SyntaxHighlighter language="javascript" style={a11yLight}>
-{`<form onSubmit={handleSubmit(onSubmit)}>
+        {`<form onSubmit={handleSubmit(onSubmit)}>
   {/* Поля формы */}
 </form>
 `}
       </SyntaxHighlighter>
       <h4>Добавление Полей</h4>
       <SyntaxHighlighter language="javascript" style={a11yLight}>
-{`//описываем поля формы используя register
+        {`//описываем поля формы используя register
 <input {...register('name')} />
 `}
       </SyntaxHighlighter>
       <h4>Валидация</h4>
       <SyntaxHighlighter language="javascript" style={a11yLight}>
-{`//механизм валидации
+        {`//механизм валидации
 <input
   type='number'
   {...register('age', {
@@ -67,7 +61,7 @@ const { register, handleSubmit, formState: { errors } } = useForm()
       </SyntaxHighlighter>
       <h4>Обработка Отправки</h4>
       <SyntaxHighlighter language="javascript" style={a11yLight}>
-{`// функция onSubmit, которая будет вызвана при отправке формы
+        {`// функция onSubmit, которая будет вызвана при отправке формы
 
 const onSubmit = (data) => {
   console.log(data);
@@ -76,20 +70,35 @@ const onSubmit = (data) => {
       </SyntaxHighlighter>
       <h4>Кнопка Отправки</h4>
       <SyntaxHighlighter language="javascript" style={a11yLight}>
-{`<button type="submit">Отправить</button>
+        {`<button type="submit">Отправить</button>
 `}
       </SyntaxHighlighter>
       <h3>Кейсы валидации</h3>
       <p>
-        <b style = {{color: '#A52A2A'}}>Register</b> - функция из библиотеки react-hook-form, которая используется 
-        <b> для связывания инпутов и других элементов формы с состоянием и валидацией формы</b> .
+        <b style={{ color: "#A52A2A" }}>Register</b> - функция из библиотеки
+        react-hook-form, которая используется
+        <b>
+          {" "}
+          для связывания инпутов и других элементов формы с состоянием и
+          валидацией формы
+        </b>{" "}
+        .
       </p>
       <p>
-        Вызывается <b style = {{color: '#A52A2A'}}>register('fieldName', validationRules)</b> , react-hook-form 
-        выполняет следующие действия:
+        Вызывается{" "}
+        <b style={{ color: "#A52A2A" }}>
+          register({"'"}fieldName{"'"}, validationRules)
+        </b>{" "}
+        , react-hook-form выполняет следующие действия:
         <ul>
-          <li>регистрирует поле внутри формы, связывая его с <b>именем fieldName</b> ;</li>
-          <li>применяет указанные <b>правила валидации (validationRules)</b> к этому полю .</li>
+          <li>
+            регистрирует поле внутри формы, связывая его с{" "}
+            <b>именем fieldName</b> ;
+          </li>
+          <li>
+            применяет указанные <b>правила валидации (validationRules)</b> к
+            этому полю .
+          </li>
         </ul>
       </p>
       <h3>Использования register</h3>
@@ -97,28 +106,19 @@ const onSubmit = (data) => {
         <li>
           <b>Базовое использование</b>
           <SyntaxHighlighter language="javascript" style={a11yLight}>
-{`//name - имя поля в объекте данных, который будет передан в функцию onSubmit
-
-<input {...register('name')} />
-`}
-      </SyntaxHighlighter>
+            {`<input {...register('name')} />`}
+          </SyntaxHighlighter>
         </li>
         <li>
-        <b>Добавление правил валидации</b>
+          <b>Добавление правил валидации</b>
           <SyntaxHighlighter language="javascript" style={a11yLight}>
-{`//поле email обязательно для заполнения. Если это поле останется пустым, 
-//будет показано сообщение "Введите email"
-
-<input {...register('email', { required: 'Введите email' })} />
-`}
-      </SyntaxHighlighter>
+            {`<input {...register('email', { required: 'Введите email' })} />`}
+          </SyntaxHighlighter>
         </li>
         <li>
-        <b>Использование нескольких правил</b>
+          <b>Использование нескольких правил</b>
           <SyntaxHighlighter language="javascript" style={a11yLight}>
-{`//required для обязательности поля 
-//min для проверки, что возраст больше 18 лет 
-
+            {`
 <input
   {...register('age', {
     required: 'Укажите возраст',
@@ -126,56 +126,55 @@ const onSubmit = (data) => {
   })}
 />
 `}
-      </SyntaxHighlighter>
+          </SyntaxHighlighter>
         </li>
         <li>
-        <b>Поле с типом radio или checkbox</b>
+          <b>Поле с типом radio или checkbox</b>
           <SyntaxHighlighter language="javascript" style={a11yLight}>
-{`//имя gender для обеих радио-кнопок
-//если не выбрано ни одно из значений, будет показано сообщение "Выберите пол"
-
+            {`
 <input type="radio" {...register('gender', { required: 'Выберите пол' })} value="male" />
 <input type="radio" {...register('gender', { required: 'Выберите пол' })} value="female" />
 `}
-      </SyntaxHighlighter>
+          </SyntaxHighlighter>
         </li>
         <li>
-        <b>Поле с с паттерном валидации</b>
+          <b>Поле с с паттерном валидации</b>
           <SyntaxHighlighter language="javascript" style={a11yLight}>
-{`// cообщение об ошибке будет показано, если введенный email не соответствует
-// шаблону или если поле осталось пустым
-
+            {`
 <input
   {...register('email', {
     required: 'Поле обязательно для заполнения',
     pattern: {
-      value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/,
+      value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$/,
       message: 'Введите корректный email',
     },
+    
   })}
 />
+
 `}
-      </SyntaxHighlighter>
+          </SyntaxHighlighter>
         </li>
       </ol>
       <h3>Controller</h3>
       <p>
-        <b style = {{color: '#A52A2A'}}>Register</b> <b>не работает</b> с компонентами
-        <b style = {{color: '#A52A2A'}}> Controller</b> . Использовать либо register, 
-        либо Controller.
+        <b style={{ color: "#A52A2A" }}>Register</b> <b>не работает</b> с
+        компонентами
+        <b style={{ color: "#A52A2A" }}> Controller</b> . Использовать либо
+        register, либо Controller.
       </p>
-      <p>Использование <b>Controller</b> :
+      <p>
+        Использование <b>Controller</b> :
         <ol>
           <li>
-            <b>Использование сторонних библиотек (ANTD или MUI) .</b> 
+            <b>Использование сторонних библиотек (ANTD или MUI) .</b>
           </li>
           <li>
-            <b>Использование сторонних библиотек валидации (yup,joi) .</b> 
+            <b>Использование сторонних библиотек валидации (yup,joi) .</b>
           </li>
         </ol>
         <SyntaxHighlighter language="javascript" style={a11yLight}>
-{`// интеграция React Hook Form + ANTD
-
+          {`
 import React from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { Input, Radio, Checkbox, DatePicker, Button } from 'antd'
@@ -201,7 +200,7 @@ const FormWithRHFController = () => {
           rules={{
             required: 'Поле обязательно для заполнения',
             pattern: {
-              value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/,
+              value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$/,
               message: 'Введите корректный email'
             }
           }}
@@ -278,16 +277,10 @@ const FormWithRHFController = () => {
     </form>
   )
 }
-
 export default FormWithRHFController
 `}
-      </SyntaxHighlighter>
+        </SyntaxHighlighter>
       </p>
-
-     
-      
     </div>
-                           
   );
 };
-export default FormPage;

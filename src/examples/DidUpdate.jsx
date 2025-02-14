@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import {  Button  } from 'antd';
-import styled from 'styled-components';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { a11yLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { useState, useEffect } from "react";
+import { Button } from "antd";
+import styled from "styled-components";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { a11yLight } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 const Title = styled.h2`
   text-align: center;
 `;
-// Создаем стилизованный контейнер
 const Container = styled.p`
   display: flex;
   justify-content: center;
@@ -15,41 +14,42 @@ const Container = styled.p`
   gap: 10px; /* Расстояние между кнопками */
 `;
 
-const DidUpdatePage = () => {
+export const DidUpdate = () => {
   const [count, setCount] = useState(0);
   const [message, setMessage] = useState("");
 
-
   useEffect(() => {
     setMessage(`Счетчик изменен на: ${count}`);
-  }, [count]); // Зависимость [count] - выполнится при изменении состояния count
+  }, [count]);
 
   const increment = () => {
-    setCount ((count) => count + 1)
-  }
+    setCount((count) => count + 1);
+  };
   const decrement = () => {
-    setCount ((count) => count - 1)
-  }
+    setCount((count) => count - 1);
+  };
   return (
     <div>
-      <Title style = {{color: '#A52A2A'}}>ComponentDidUpdate</Title>
+      <Title style={{ color: "#A52A2A" }}>ComponentDidUpdate</Title>
       <SyntaxHighlighter language="javascript" style={a11yLight}>
-{`// Отработает как componentDidUpdate 
+        {` 
 useEffect(() => { console.log("componentDidUpdate") }, [dependency])
 `}
-      </SyntaxHighlighter> 
+      </SyntaxHighlighter>
       <p>
-        <b>Когда count изменяется, useEffect обновляет состояние message, отображая новое 
-        сообщение о счетчике</b> .
+        <b>
+          Когда count изменяется, useEffect обновляет состояние message,
+          отображая новое сообщение о счетчике
+        </b>{" "}
+        .
       </p>
       <Container>
-      
-        <Button onClick = {increment}>Увеличить</Button>
+        <Button onClick={increment}>Увеличить</Button>
         <p>{message}</p>
-        <Button onClick = {decrement}>Уменьшить</Button> 
+        <Button onClick={decrement}>Уменьшить</Button>
       </Container>
       <SyntaxHighlighter language="javascript" style={a11yLight}>
-{`import React, { useState, useEffect } from "react";
+        {`import React, { useState, useEffect } from "react";
 
 const Example = () => {
   const [count, setCount] = useState(0);
@@ -57,7 +57,7 @@ const Example = () => {
 
   useEffect(() => {
     setMessage(\`Счетчик изменен на: \${count}\`);
-  }, [count]); // Зависимость [count] - выполнится при изменении состояния count
+  }, [count]); 
   const increment = () => {
     setCount ((count) => count + 1)
   }
@@ -77,10 +77,7 @@ const Example = () => {
 
 export default Example;
 `}
-      </SyntaxHighlighter> 
-
-             
-    </div>                           
+      </SyntaxHighlighter>
+    </div>
   );
 };
-export default DidUpdatePage;
