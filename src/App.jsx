@@ -63,6 +63,7 @@ function App() {
             </Sider>
             <Content style={contentStyle}>
               <Routes>
+                <Route path="/cheat-sheet/" element={<HomePage />} />
                 <Route path="/" element={<HomePage />} />
                 <Route path="/virtualDom" element={<VirtualDom />} />
                 <Route path="/components" element={<Components />} />
